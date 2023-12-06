@@ -25,14 +25,14 @@ quasar build
 
 - **WYSIWYG** coding sandbox <sup id="a1">[ 1](#f1)</sup>
 - support **markdown** rendering <sup id="a2">[ 2](#f2)</sup>
-- support **tailwindcss3**`<sup id="a3">[ 3](#f3)</sup>
+- support **tailwindcss3** <sup id="a3">[ 3](#f3)</sup>
 - support dark mode (not sufficient)
 - still in progress ...
 
 ## Thanks
 
-<span id="f1">1. [^](#a1)</span> [Mini Sandbox](https://github.com/buuing/mini-sandbox "https://github.com/buuing/mini-sandbox")
+1. <sup id="f1">[^](#a1)</sup> [Mini Sandbox](https://github.com/buuing/mini-sandbox "https://github.com/buuing/mini-sandbox")
 
-<span id="f2">2. [^](#a2)</span> [quasar-ui-qmarkdown](https://github.com/quasarframework/quasar-ui-qmarkdown/tree/next "https://github.com/quasarframework/quasar-ui-qmarkdown/tree/next")
+2. <sup id="f2">[^](#a2)</sup> [quasar-ui-qmarkdown](https://github.com/quasarframework/quasar-ui-qmarkdown/tree/next "https://github.com/quasarframework/quasar-ui-qmarkdown/tree/next")
 
-<span id="f3">3. [^](#a3)</span> [quasar-app-extension-tailwindcss-3](https://github.com/risha700/quasar-app-extension-tailwindcss-3 "https://github.com/risha700/quasar-app-extension-tailwindcss-3")
+3. <sup id="f3">[^](#a3)</sup> [quasar-app-extension-tailwindcss-3](https://github.com/risha700/quasar-app-extension-tailwindcss-3 "https://github.com/risha700/quasar-app-extension-tailwindcss-3")
