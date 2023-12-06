@@ -1,5 +1,6 @@
 <template>
-  <q-item clickable @click="$router.push(link)">
+  <q-item clickable @click="$router.push(link)"
+    :active="title !== undefined && title.toLowerCase() === $route.path.toString().split('/')[1]">
     <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>

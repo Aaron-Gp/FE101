@@ -109,14 +109,14 @@ const currentPage = shallowRef()
 const modules = import.meta.glob('pages/**/*.vue')
 
 function loadPage() {
-  console.log(route.fullPath)
+  // console.log(route.fullPath)
   mainPath.value = route.fullPath.split('/')[1]
-  console.log(mainPath.value)
+  // console.log(mainPath.value)
   const id = route.fullPath.split('/')[2]
-  console.log(id)
+  // console.log(id)
   const boundary = store.length(mainPath.value)
   if (parseInt(id) > boundary) {
-    console.log('redirect to 404')
+    // console.log('redirect to 404')
     router.replace('/404')
   } else {
     // for (const path in modules) {
@@ -125,11 +125,16 @@ function loadPage() {
     //   })
     // }
     const name = '../pages/' + mainPath.value + '/' + id + 'Page.vue'
-    console.log(name)
-    modules[name]().then((mod) => {
-      console.log(name, mod)
-      currentPage.value = mod.default
-    })
+    // console.log(name)
+    try {
+      modules[name]().then((mod) => {
+        // console.log(name, mod)
+        currentPage.value = mod.default
+      })
+    } catch (error) {
+      console.error(error)
+      router.replace('/404')
+    }
   }
 }
 

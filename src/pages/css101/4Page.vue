@@ -1,6 +1,11 @@
 <template>
   <q-page class="items-center fit q-pa-md">
-    <div id="my-sandbox"></div>
+    <div class="tw-my-8">
+      <div id="sandbox1"></div>
+    </div>
+    <div class="tw-my-8">
+      <div id="sandbox2"></div>
+    </div>
   </q-page>
 </template>
 
@@ -9,7 +14,96 @@ import { onMounted } from 'vue'
 
 onMounted(() => {
   new MiniSandbox({
-    el: '#my-sandbox',
+    el: '#sandbox1',
+    files: {
+      'index.html': {
+        title: 'HTML',
+        defaultValue: `
+<!-- don't clear me -->
+
+<!-- dice -->
+<div class="face">
+  <span class="dot cc-dot red"></span>
+</div>
+
+<div class="face">
+  <span class="dot lt-dot"></span>
+  <span class="dot cc-dot"></span>
+  <span class="dot rb-dot"></span>
+</div>
+
+<div class="face">
+  <span class="dot lt-dot"></span>
+  <span class="dot rt-dot"></span>
+  <span class="dot cc-dot"></span>
+  <span class="dot lb-dot"></span>
+  <span class="dot rb-dot"></span>
+</div>
+        `.trim(),
+        cssLibs: ['index.css'],
+      },
+      'index.css': {
+        title: 'CSS',
+        defaultValue: `
+/* don't clear me */
+
+.face {
+  display: grid;
+  grid-template-rows: repeat(3, 50px);
+  grid-template-columns: repeat(3, 50px);
+  grid-template-areas:
+    "lt-dot ct-dot rt-dot"
+    "lc-dot cc-dot rc-dot"
+    "lb-dot cb-dot rb-dot";
+  margin: 20px auto;
+}
+.lt-dot {
+  grid-area: lt-dot;
+}
+.ct-dot {
+  grid-area: ct-dot;
+}
+.rt-dot {
+  grid-area: rt-dot;
+}
+.lb-dot {
+  grid-area: lb-dot;
+}
+.cb-dot {
+  grid-area: cb-dot;
+}
+.rb-dot {
+  grid-area: rb-dot;
+}
+.lc-dot {
+  grid-area: lc-dot;
+}
+.cc-dot {
+  grid-area: cc-dot;
+}
+.rc-dot {
+  grid-area: rc-dot;
+}
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  display: block;
+  margin: 20px auto;
+}
+.red {
+  background-color: red;
+}
+        `.trim(),
+      },
+    },
+    defaultConfig: {
+      height: '400px',
+    },
+  })
+  new MiniSandbox({
+    el: '#sandbox2',
     files: {
       'index.html': {
         title: 'HTML',

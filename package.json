@@ -1,9 +1,9 @@
 {
   "name": "fe101",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Front End Basic Course Project.",
   "productName": "FE101",
-  "author": "Aaron Gao <1791615002@qq.com>",
+  "author": "Aaron Gao <aaron_gp@qq.com>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
