@@ -11,7 +11,9 @@
             <q-icon name="language" />
           </template>
         </q-select>
-        <div class="q-mx-lg">v0.1.0</div>
+        <q-btn aria-label="Dark theme toggle" flat round class="tw-ml-4"
+          :icon="$q.dark.isActive ? 'brightness_2' : 'brightness_5'" @click="$q.dark.toggle()"></q-btn>
+        <div class="q-mx-lg">v{{ version }}</div>
       </q-toolbar>
 
       <q-tabs inline-label outside-arrows mobile-arrows align="left" class="bg-primary text-white shadow-2 q-pl-xl">
@@ -30,21 +32,40 @@
       </q-list>
     </q-drawer>
 
+    <!-- <q-drawer v-if="store.toc.length > 0" ref="drawer" v-model="rightDrawerOpen" show-if-above side="right"
+      aria-label="Table of Contents" class="toc markdown__scroll">
+      <q-scroll-area class="fit">
+        <q-list dense>
+          <q-item v-for="item in store.toc" :key="item.id" v-ripple clickable dense :active="activeToc === item.id"
+            class="toc" @click="scrollTo(item.id)">
+            <q-item-section v-if="item.level > 2" side>
+              »
+            </q-item-section>
+            <q-item-section>{{ item.label }}</q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
+    </q-drawer> -->
+
     <q-page-container>
       <component :is="currentPage"></component>
     </q-page-container>
+
+    <q-page-scroller position="bottom-right" :scroll-offset="150" :offset="[18, 18]">
+      <q-btn fab padding="sm" icon="keyboard_arrow_up"
+        :class="{ 'text-black bg-grey-4': $q.dark.isActive, 'text-white bg-primary': !$q.dark.isActive }" />
+    </q-page-scroller>
   </q-layout>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted, shallowRef } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n'
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
 import { useNavStore } from 'stores/store';
-import { shallowRef } from 'vue';
-import { onMounted } from 'vue';
+import { version } from 'src/version'
 
 const { locale } = useI18n({ useScope: 'global' })
 const localeOptions = [
@@ -70,6 +91,11 @@ const essentialLinks: EssentialLinkProps[] = [
     title: 'CSS101',
     icon: 'css',
     link: '/css101/1'
+  },
+  {
+    title: 'JS101',
+    icon: 'javascript',
+    link: '/js101/1'
   }
 ];
 

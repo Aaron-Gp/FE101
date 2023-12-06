@@ -16,10 +16,7 @@ onMounted(() => {
         defaultValue: `
 <!-- don't clear me -->
 
-<h1>I am a Title</h1>
-<div class="card">
-  <h1>I am a inside Title</h1>
-</div>
+<div class="awesome-border fluid"></div>
         `.trim(),
         cssLibs: ['index.css'],
       },
@@ -28,14 +25,69 @@ onMounted(() => {
         defaultValue: `
 /* don't clear me */
 
-h1 {
-  font-size: 28px;
+:root{
+  --rad: 0;
 }
-.card {
-  font-size: 24px;
+.awesome-border{
+  width: 150px;
+  height: 100px;
+  border: 8px solid transparent;
+  border-radius: 12px;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  filter: hue-rotate(360deg);
+  background-image:
+    linear-gradient(to right, #fff, #fff),
+    linear-gradient(calc(var(--rad) * 1deg), #e941ab, #a557ef);
 }
-.card h1 {
-  font-size: inherit;
+.fluid{
+  animation: fluid 1.25s infinite linear;
+}
+.huerot{
+  animation: huerotate 6s infinite ease-in-out;
+}
+.fluid-huerot{
+  animation:
+    huerotate 6s infinite ease-in-out,
+    fluid 1.5s infinite ease-in-out;
+}
+@keyframes fluid{
+  0% {
+    --rad: 0;
+  }
+  12% {
+    --rad: 45;
+  }
+  25% {
+    --rad: 90;
+  }
+  38% {
+    --rad: 135;
+  }
+  50% {
+    --rad: 180;
+  }
+  62% {
+    --rad: 225;
+  }
+  75% {
+    --rad: 270;
+  }
+  88% {
+    --rad: 315;
+  }
+  100% {
+    --rad: 360;
+  }
+}
+
+@keyframes huerotate{
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
 }
         `.trim(),
       },

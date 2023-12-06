@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted } from 'vue';
 
 onMounted(() => {
   new MiniSandbox({
@@ -49,8 +49,7 @@ onMounted(() => {
     },
     defaultConfig: {
       height: '400px',
-    }
-  })
-})
-
+    },
+  });
+});
 </script>

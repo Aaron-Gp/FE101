@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted } from 'vue';
 
 onMounted(() => {
   new MiniSandbox({
@@ -14,43 +14,32 @@ onMounted(() => {
       'index2.html': {
         title: 'HTML',
         defaultValue: `
-        <!-- don't clear me -->
+<!-- don't clear me -->
+<html lang="en">
+<head>
+  <script>
+    function renderHello(){
+      var template=document.getElementById('template').innerHTML;
+      var rendered=Mustache.render(template,{name:'Luke'});
+      document.getElementById('target').innerHTML=rendered;
+    }
+  <\/script>
+</head>
+<body onload="renderHello()">
+  <div id="target">loading...</div>
+  <script id="template" type="x-tmpl-mustache">
+    Hello {{ name }}!
+  <\/script>
 
-<div
-  style="width:350px;height:70px;border:1px solid #aaa;"
-  ondrop="drop(event)"
-  ondragover="allowDrop(event)"
-></div>
-
-<img
-  id="w3s"
-  src="https://www.w3schools.com/html/img_logo.gif"
-  draggable="true"
-  ondragstart="drag(event)"
-  width="336"
-  height="69"
-/>
-
-<script>
-  function allowDrop(ev){
-    ev.preventDefault()
-  }
-  function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id)
-  }
-  function drop(ev) {
-    ev.preventDefault()
-    var data = ev.dataTransfer.getData("text")
-    ev.target.appendChild(document.getElementById(data))
-  }
-<\/script>
+  <script src="https://unpkg.com/mustache@latest"><\/script>
+</body>
+</html>
         `.trim(),
       },
     },
     defaultConfig: {
       height: '400px',
-    }
-  })
-})
-
+    },
+  });
+});
 </script>

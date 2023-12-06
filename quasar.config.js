@@ -63,6 +63,7 @@ module.exports = configure(function (ctx) {
         screen: {
           bodyClasses: true,
         },
+        dark: 'auto',
       },
       plugins: [],
     },
