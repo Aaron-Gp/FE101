@@ -2,7 +2,7 @@
   "@quasar/qmarkdown": {
     "import_md": true
   },
-  "tailwindcss-3": {
+  "@bitnp/tailwindcss": {
     "prefix": "tw-"
   }
 }
