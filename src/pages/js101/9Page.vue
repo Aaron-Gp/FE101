@@ -1,12 +1,6 @@
 <template>
   <q-page class="items-center fit q-pa-md">
-    <div class="tw-text-black">
-      <div
-        id="sandbox1"
-        class="mini-sandbox"
-        :class="$q.dark.isActive ? 'sandbox-theme-dark' : 'sandbox-theme-light'"
-      ></div>
-    </div>
+    <div id="sandbox1"></div>
   </q-page>
 </template>
 
@@ -22,6 +16,8 @@ onMounted(() => {
         defaultValue: `
 <!-- don't clear me -->
 
+<div style="margin-bottom:1rem;">Console Output:</div>
+<div id="output"></div>
         `.trim(),
         jsLibs: ['index.js'],
       },
@@ -29,6 +25,33 @@ onMounted(() => {
         title: 'JS',
         defaultValue: `
 // don't clear me
+
+function show(){
+				function showName(){
+				//	output.innerHTML += this+'<br/>'
+				}
+				showName()
+			}
+			show()
+			const name = 1;
+			const obj = {
+				name: 'zq',
+				showName(){
+					output.innerHTML += this.name+'<br/>'
+				}
+			}
+			const obj1={
+				name:'bytedance'
+			}
+			obj.showName.apply(obj1)
+
+			obj.showName()
+			function ShowName(){
+				this.name = 'zq';
+				output.innerHTML += this.name+'<br/>'
+			}
+			const getName = new ShowName()
+			output.innerHTML += getName.name+'<br/>'
         `.trim(),
       },
     },
@@ -38,3 +61,4 @@ onMounted(() => {
   });
 });
 </script>
+
