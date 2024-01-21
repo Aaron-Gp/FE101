@@ -7,6 +7,7 @@ A Front End Basic Course Project.
 ```bash
 pnpm install
 pnpm add -g @quasar/cli
+pnpm add vue-json-pretty
 ```
 
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
