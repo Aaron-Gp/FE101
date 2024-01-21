@@ -1,6 +1,12 @@
 <template>
   <q-page class="items-center fit q-pa-md">
-    <div id="sandbox1"></div>
+    <div class="tw-text-black">
+      <div
+        id="sandbox1"
+        class="mini-sandbox"
+        :class="$q.dark.isActive ? 'sandbox-theme-dark' : 'sandbox-theme-light'"
+      ></div>
+    </div>
   </q-page>
 </template>
 
@@ -15,9 +21,8 @@ onMounted(() => {
         title: 'HTML',
         defaultValue: `
 <!-- don't clear me -->
-
 <div style="margin-bottom:1rem;">Console Output:</div>
-<div id="output"></div>
+<div id="example3"></div>
         `.trim(),
         jsLibs: ['index.js'],
       },
@@ -25,7 +30,7 @@ onMounted(() => {
         title: 'JS',
         defaultValue: `
 // don't clear me
-
+const output = document.querySelector('#example3');
 function showName(){
 				const company = "Byredance";
 				const dep = "边缘云";
@@ -47,4 +52,3 @@ function showName(){
   });
 });
 </script>
-
