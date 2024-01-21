@@ -1,6 +1,12 @@
 <template>
   <q-page class="items-center fit q-pa-md">
-    <div id="sandbox1"></div>
+    <div class="tw-text-black">
+      <div
+        id="sandbox1"
+        class="mini-sandbox"
+        :class="$q.dark.isActive ? 'sandbox-theme-dark' : 'sandbox-theme-light'"
+      ></div>
+    </div>
   </q-page>
 </template>
 
@@ -15,9 +21,8 @@ onMounted(() => {
         title: 'HTML',
         defaultValue: `
 <!-- don't clear me -->
-
 <div style="margin-bottom:1rem;">Console Output:</div>
-<div id="output"></div>
+<div id="example1"></div>
         `.trim(),
         jsLibs: ['index.js'],
       },
@@ -25,8 +30,7 @@ onMounted(() => {
         title: 'JS',
         defaultValue: `
 // don't clear me
-
-const output = document.querySelector('#output');
+const output = document.querySelector('#example1');
 
 output.innerHTML += "同步代码1<br/>";
 setTimeout(()=>{
