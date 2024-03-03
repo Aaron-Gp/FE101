@@ -18,6 +18,10 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
   },
   {
+    path: '/ast101/:id(\\d+)',
+    component: () => import('layouts/MainLayout.vue'),
+  },
+  {
     path: '/:catchAll(.*)*',
     component: () => import('pages/404Page.vue'),
   },

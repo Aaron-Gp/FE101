@@ -6,6 +6,7 @@ export const useNavStore = defineStore('nav', {
       html101: ['1', '2', '3', '4', '5', '6', '7', '8'] as string[],
       css101: ['1', '2', '3', '4', '5', '6'] as string[],
       js101: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'] as string[],
+      ast101: ['1'] as string[],
     },
   }),
   getters: {
