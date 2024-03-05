@@ -96,6 +96,11 @@ const essentialLinks: EssentialLinkProps[] = [
     title: 'JS101',
     icon: 'javascript',
     link: '/js101/1'
+  },
+  {
+    title: 'AST101',
+    icon: 'javascript',
+    link: '/ast101/1'
   }
 ];
 
